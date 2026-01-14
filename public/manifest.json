@@ -1,0 +1,17 @@
+{
+  "name": "Posted - AI-Powered TikTok Carousel Generator",
+  "short_name": "Posted",
+  "description": "Turn boring text into high-converting TikTok carousels in seconds",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F5F4",
+  "theme_color": "#DDFC7B",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "114x114",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

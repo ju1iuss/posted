@@ -9,8 +9,9 @@ import { Button } from '@/components/ui/button';
 export default function ApplyPage() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
-    niche: '',
-    experience: '',
+    goal: '',
+    contentApproach: '',
+    tiktokExperience: '',
     name: '',
     email: '',
     company: ''
@@ -34,7 +35,7 @@ export default function ApplyPage() {
       });
 
       if (response.ok) {
-        setStep(4);
+        setStep(5);
       } else {
         alert('Something went wrong. Please try again.');
       }
@@ -59,9 +60,9 @@ export default function ApplyPage() {
 
       <div className="w-full max-w-xl relative z-10">
         {/* Progress Bar */}
-        {step < 4 && (
+        {step < 5 && (
           <div className="flex gap-2 mb-12">
-            {[1, 2, 3].map((s) => (
+            {[1, 2, 3, 4].map((s) => (
               <div 
                 key={s} 
                 className={`h-1 flex-1 rounded-full transition-all duration-500 ${step >= s ? 'bg-black' : 'bg-stone-200'}`}
@@ -74,13 +75,13 @@ export default function ApplyPage() {
           <div className="animate-fade-up">
             <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase leading-[0.9] mb-8">
               What's your <br/>
-              <span className="text-[#DDFC7B] bg-black px-2">main niche?</span>
+              <span className="text-[#DDFC7B] bg-black px-2">goal?</span>
             </h1>
             <div className="grid grid-cols-1 gap-3">
-              {['SaaS & Digital Products', 'Personal Branding', 'E-commerce & Brands', 'Agency / Freelance'].map((option) => (
+              {['Grow my personal brand', 'Drive sales/leads for my business', 'Build an audience from scratch', 'Scale my agency\'s content output', 'Improve content quality & consistency'].map((option) => (
                 <button
                   key={option}
-                  onClick={() => handleSelect('niche', option)}
+                  onClick={() => handleSelect('goal', option)}
                   className="group flex justify-between items-center p-6 bg-white border-2 border-stone-200 rounded-2xl hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all text-left"
                 >
                   <span className="font-bold text-lg">{option}</span>
@@ -94,14 +95,14 @@ export default function ApplyPage() {
         {step === 2 && (
           <div className="animate-fade-up">
             <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase leading-[0.9] mb-8">
-              Current <br/>
-              <span className="text-[#DDFC7B] bg-black px-2">follower count?</span>
+              How do you want to <br/>
+              <span className="text-[#DDFC7B] bg-black px-2">create content?</span>
             </h1>
             <div className="grid grid-cols-1 gap-3">
-              {['0 - 1k (Just starting)', '1k - 10k', '10k - 100k', '100k+'].map((option) => (
+              {['Build content for TikTok myself', 'Get someone to build content for us', 'Scale existing content production', 'Learn content strategy & best practices', 'Automate content creation workflow'].map((option) => (
                 <button
                   key={option}
-                  onClick={() => handleSelect('experience', option)}
+                  onClick={() => handleSelect('contentApproach', option)}
                   className="group flex justify-between items-center p-6 bg-white border-2 border-stone-200 rounded-2xl hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all text-left"
                 >
                   <span className="font-bold text-lg">{option}</span>
@@ -113,6 +114,27 @@ export default function ApplyPage() {
         )}
 
         {step === 3 && (
+          <div className="animate-fade-up">
+            <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase leading-[0.9] mb-8">
+              What's your <br/>
+              <span className="text-[#DDFC7B] bg-black px-2">experience with TikTok?</span>
+            </h1>
+            <div className="grid grid-cols-1 gap-3">
+              {['Never used TikTok', 'We have a TikTok account but struggling', 'We post regularly but want to scale', 'We\'re growing fast and want to optimize'].map((option) => (
+                <button
+                  key={option}
+                  onClick={() => handleSelect('tiktokExperience', option)}
+                  className="group flex justify-between items-center p-6 bg-white border-2 border-stone-200 rounded-2xl hover:border-black hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all text-left"
+                >
+                  <span className="font-bold text-lg">{option}</span>
+                  <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {step === 4 && (
           <div className="animate-fade-up">
             <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase leading-[0.9] mb-8">
               Almost <br/>
@@ -157,7 +179,7 @@ export default function ApplyPage() {
           </div>
         )}
 
-        {step === 4 && (
+        {step === 5 && (
           <div className="text-center animate-fade-up">
             <div className="w-20 h-20 bg-[#DDFC7B] border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded-full flex items-center justify-center mx-auto mb-8 animate-bounce-slow">
               <CheckCircle2 size={40} className="text-black" />

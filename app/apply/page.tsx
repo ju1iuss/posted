@@ -142,11 +142,11 @@ export default function ApplyPage() {
             </h1>
             <form onSubmit={handleSubmit} className="bg-white border-2 border-black shadow-[8px_8px_0px_0px_rgba(221,252,123,1)] p-8 rounded-3xl space-y-5">
               <div className="space-y-1">
-                <label className="text-[10px] font-black uppercase tracking-widest text-stone-400 ml-1">Full Name</label>
+                <label className="text-[10px] font-black uppercase tracking-widest text-stone-400 ml-1">Vorname</label>
                 <input 
                   required
                   className="w-full p-4 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:border-black transition-colors"
-                  placeholder="John Doe"
+                  placeholder="Max"
                   value={formData.name}
                   onChange={e => setFormData({...formData, name: e.target.value})}
                 />

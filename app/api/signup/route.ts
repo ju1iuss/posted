@@ -8,42 +8,16 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, email, company, goal, contentApproach, tiktokExperience } = body;
 
-    // Send email notification to julius@tasy.ai
-    await resend.emails.send({
-      from: 'Posted <onboarding@resend.dev>', // Update this with your verified domain
-      to: 'julius@tasy.ai',
-      subject: '🎉 New Signup on Posted Waitlist',
-      html: `
-        <div style="font-family: Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <h1 style="font-size: 24px; font-weight: bold; margin-bottom: 20px;">New Signup Alert</h1>
-          
-          <p style="font-size: 16px; margin-bottom: 20px;">Someone just signed up for the Posted waitlist!</p>
-          
-          <div style="background: #f5f5f4; border: 2px solid #000; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
-            <h2 style="font-size: 18px; font-weight: bold; margin-bottom: 15px;">Signup Details:</h2>
-            
-            <p style="margin: 10px 0;"><strong>Name:</strong> ${name}</p>
-            <p style="margin: 10px 0;"><strong>Email:</strong> ${email}</p>
-            <p style="margin: 10px 0;"><strong>Company:</strong> ${company}</p>
-            <p style="margin: 10px 0;"><strong>Goal:</strong> ${goal}</p>
-            <p style="margin: 10px 0;"><strong>Content Approach:</strong> ${contentApproach}</p>
-            <p style="margin: 10px 0;"><strong>TikTok Experience:</strong> ${tiktokExperience}</p>
-          </div>
-          
-          <p style="font-size: 14px; color: #666;">This is an automated notification from Posted.</p>
-        </div>
-      `,
-    });
-
-    // Calculate send time (5 minutes from now)
-    const scheduledAt = new Date(Date.now() + 5 * 60 * 1000).toISOString();
+    // Calculate send times
+    const scheduledAt5min = new Date(Date.now() + 5 * 60 * 1000).toISOString();
+    const scheduledAt1day = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
 
     // Send qualification email to user 5 minutes after signup
     await resend.emails.send({
       from: 'CEO Posted AI <julius@tasy.ai>',
       to: email,
       subject: 'Einladung zu Posted AI',
-      scheduledAt: scheduledAt,
+      scheduledAt: scheduledAt5min,
       html: `
         <div style="font-family: Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; line-height: 1.6;">
           <p>Hey ${name},</p>
@@ -78,6 +52,27 @@ export async function POST(request: Request) {
           <p>Freue mich auf deine Antwort.</p>
           
           <p>Beste Grüße,<br/>Julius<br/>Posted AI</p>
+        </div>
+      `,
+    });
+
+    // Send follow-up email 1 day after signup
+    await resend.emails.send({
+      from: 'Julius <julius@tasy.ai>',
+      to: email,
+      subject: 'Was denkst du?',
+      scheduledAt: scheduledAt1day,
+      html: `
+        <div style="font-family: Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; line-height: 1.6;">
+          <p>Hey ${name}!</p>
+          
+          <p>In den letzten 3 Tagen hatten wir 4 Brand-Posts mit über 1,2 Millionen Impressions.</p>
+          
+          <p>Als Posted-Nutzer bekommst du unlimited Access zu unserem AI-Carousel-Creator für TikTok.</p>
+          
+          <p>Hast du schon mal Carousels für deine Brand getestet? Und betreust du mehrere Accounts?</p>
+          
+          <p>Beste Grüße,<br/>Julius</p>
         </div>
       `,
     });

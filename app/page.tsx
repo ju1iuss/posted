@@ -38,10 +38,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-16 lg:px-24 py-4 bg-transparent animate-fade-in">
+    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-16 lg:px-24 py-4 bg-[#F5F5F4]/80 backdrop-blur-md animate-fade-in border-b border-stone-100">
       <div className="flex items-center gap-2.5">
-        <Image src="/logo.svg" alt="Posted" width={32} height={32} />
-        <span className="font-bold text-xl tracking-tight text-black" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Posted</span>
+        <Link href="/" className="flex items-center gap-2.5">
+          <Image src="/logo.svg" alt="Posted" width={28} height={28} className="md:w-8 md:h-8" />
+          <span className="font-bold text-lg md:text-xl tracking-tight text-black" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Posted</span>
+        </Link>
       </div>
       
       <div className="hidden md:flex items-center gap-10 font-medium text-[15px] text-stone-600" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
@@ -216,9 +218,9 @@ const CaseStudySection = () => {
       <div className="relative flex flex-col gap-6 overflow-hidden">
         {/* First Row - Scroll Left */}
         <div className="relative flex overflow-x-hidden">
-          <div className="py-4 animate-marquee flex gap-6 min-w-full">
+          <div className="py-4 animate-marquee flex gap-4 md:gap-6 min-w-full">
             {[...images, ...images].map((src, i) => (
-              <div key={`row1-${i}`} className="relative flex-shrink-0 w-[300px] aspect-[5/4] rounded-3xl overflow-hidden shadow-[0px_8px_24px_rgba(0,0,0,0.08),0px_2px_8px_rgba(0,0,0,0.06)] border-2 border-black/5 hover:scale-105 hover:shadow-[0px_12px_32px_rgba(0,0,0,0.10),0px_4px_12px_rgba(0,0,0,0.08)] transition-all duration-500 bg-stone-50">
+              <div key={`row1-${i}`} className="relative flex-shrink-0 w-[220px] md:w-[300px] aspect-[5/4] rounded-2xl md:rounded-3xl overflow-hidden shadow-[0px_8px_24px_rgba(0,0,0,0.08),0px_2px_8px_rgba(0,0,0,0.06)] border-2 border-black/5 hover:scale-105 hover:shadow-[0px_12px_32px_rgba(0,0,0,0.10),0px_4px_12px_rgba(0,0,0,0.08)] transition-all duration-500 bg-stone-50">
                 <Image 
                   src={src} 
                   alt={`Case Study ${i + 1}`} 
@@ -232,9 +234,9 @@ const CaseStudySection = () => {
         
         {/* Second Row - Scroll Right (reverse) */}
         <div className="relative flex overflow-x-hidden">
-          <div className="py-4 animate-marquee-reverse flex gap-6 min-w-full">
+          <div className="py-4 animate-marquee-reverse flex gap-4 md:gap-6 min-w-full">
             {[...images, ...images].map((src, i) => (
-              <div key={`row2-${i}`} className="relative flex-shrink-0 w-[300px] aspect-[5/4] rounded-3xl overflow-hidden shadow-[0px_8px_24px_rgba(0,0,0,0.08),0px_2px_8px_rgba(0,0,0,0.06)] border-2 border-black/5 hover:scale-105 hover:shadow-[0px_12px_32px_rgba(0,0,0,0.10),0px_4px_12px_rgba(0,0,0,0.08)] transition-all duration-500 bg-stone-50">
+              <div key={`row2-${i}`} className="relative flex-shrink-0 w-[220px] md:w-[300px] aspect-[5/4] rounded-2xl md:rounded-3xl overflow-hidden shadow-[0px_8px_24px_rgba(0,0,0,0.08),0px_2px_8px_rgba(0,0,0,0.06)] border-2 border-black/5 hover:scale-105 hover:shadow-[0px_12px_32px_rgba(0,0,0,0.10),0px_4px_12px_rgba(0,0,0,0.08)] transition-all duration-500 bg-stone-50">
                 <Image 
                   src={src} 
                   alt={`Case Study ${i + 1}`} 
@@ -327,32 +329,32 @@ export default function HeroSection() {
         {/* Status Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-stone-200 shadow-sm mb-6 animate-fade-in">
           <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#DDFC7B] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#DDFC7B]"></span>
           </span>
           <span className="text-xs font-medium text-stone-600" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-            <span className="font-bold text-stone-900">Beta Open</span>
+            <span className="font-bold text-stone-900">Platform Open</span>
             <span className="mx-1.5">•</span>
-            <span>Live Mid 2026</span>
+            <span>Get Started Now</span>
           </span>
         </div>
 
         {/* Hero Copy */}
-        <div className="text-center max-w-4xl mx-auto mb-10 relative">
-          <h1 className="text-5xl md:text-7xl lg:text-[82px] font-black tracking-tight mb-5 leading-[0.95] text-black animate-fade-up" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-            Build TikTok carousels <br/>
+        <div className="text-center max-w-4xl mx-auto mb-10 relative px-4">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[82px] font-black tracking-tight mb-5 leading-[0.95] text-black animate-fade-up" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+            Build TikTok carousels <br className="hidden sm:block" />
             <span style={{ color: '#595547' }}>
               that{' '}
               <span className="relative inline-block">
                 <span className="relative z-10">boost your reach</span>
-                <svg className="absolute w-full h-4 md:h-5 -bottom-1 left-0 text-[#DDFC7B] animate-draw-line" viewBox="0 0 100 12" preserveAspectRatio="none">
+                <svg className="absolute w-full h-3 sm:h-4 md:h-5 -bottom-1 left-0 text-[#DDFC7B] animate-draw-line" viewBox="0 0 100 12" preserveAspectRatio="none">
                   <path d="M2 8 Q 25 12 50 8 Q 75 4 98 8" stroke="currentColor" strokeWidth="8" fill="none" strokeLinecap="round" />
                 </svg>
               </span>
               {' '}automatically.
             </span>
           </h1>
-          <p className="text-base md:text-lg text-stone-500 max-w-lg mx-auto font-normal leading-relaxed animate-fade-up [animation-delay:200ms]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+          <p className="text-sm sm:text-base md:text-lg text-stone-500 max-w-lg mx-auto font-normal leading-relaxed animate-fade-up [animation-delay:200ms]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
             Turn boring text into high-converting TikTok carousels in seconds. 
             Deeply tuned for the algorithm, designed for humans.
           </p>
@@ -371,7 +373,7 @@ export default function HeroSection() {
         </div>
 
         {/* Showcase Section */}
-        <div className="relative w-full max-w-5xl h-[480px] flex items-center justify-center mt-12 md:mt-20">
+        <div className="relative w-full max-w-5xl h-[400px] sm:h-[480px] flex items-center justify-center mt-8 md:mt-20">
           
           {/* Floating Cards */}
           <FloatingCard x="8%" y="15%" icon={TrendingUp} title="TrendingUp" subtitle="High Retention" delay={0.2} />
@@ -394,35 +396,57 @@ export default function HeroSection() {
 
       <CaseStudySection />
 
-      {/* Beta / Waitlist Section */}
+      {/* Pricing Section */}
       <section id="pricing" className="w-full py-24 bg-black text-white relative overflow-hidden scroll-mt-20">
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
         
         <div className="container mx-auto px-6 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#DDFC7B] text-black text-[10px] font-black uppercase tracking-tighter mb-8">
-            Limited Access
+            Simple Pricing
           </div>
           
           <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-6 leading-none uppercase">
-            We're currently in <br/>
-            <span className="text-[#DDFC7B]">invite-only beta.</span>
+            Start creating <br/>
+            <span className="text-[#DDFC7B]">viral content today.</span>
           </h2>
           
           <p className="text-stone-400 max-w-xl mx-auto mb-10 text-lg font-medium leading-relaxed">
-            We're manually onboarding a select group of creators to ensure the highest quality output. Join the waitlist to secure your spot.
+            One simple plan for serious creators. Get unlimited access to the AI factory and dominate the algorithm.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="max-w-sm mx-auto bg-stone-900 border-2 border-[#DDFC7B] rounded-[2.5rem] p-8 mb-12 shadow-[0px_0px_50px_rgba(221,252,123,0.15)]">
+            <div className="text-[#DDFC7B] font-black text-sm uppercase tracking-widest mb-2">Pro Plan</div>
+            <div className="flex items-end justify-center gap-1 mb-6">
+              <span className="text-5xl font-black text-white">200€</span>
+              <span className="text-stone-500 font-bold mb-1">/month</span>
+            </div>
+            
+            <ul className="text-left space-y-4 mb-8">
+              {[
+                'Unlimited AI Generations',
+                '4K High-Res Exports',
+                'Custom Brand Templates',
+                'Priority Support',
+                '3-Day Free Trial'
+              ].map((feature) => (
+                <li key={feature} className="flex items-center gap-3 text-sm font-medium">
+                  <Sparkles size={16} className="text-[#DDFC7B]" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
             <Link href="/apply">
-              <Button variant="secondary" size="lg" className="bg-[#DDFC7B] text-black hover:bg-lime-300 border-none px-10 font-black uppercase italic shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] group">
+              <Button variant="secondary" size="lg" className="w-full bg-[#DDFC7B] text-black hover:bg-lime-300 border-none font-black uppercase italic group">
                 <span className="flex items-center gap-2">
-              Start Now
+                  Start 3-Day Free Trial
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </span>
-            </Button>
+              </Button>
             </Link>
-            <span className="text-stone-500 text-sm font-mono tracking-tighter">142 people ahead of you</span>
           </div>
+          
+          <p className="text-stone-500 text-sm font-mono tracking-tighter">No credit card required to start</p>
         </div>
       </section>
 
@@ -486,38 +510,39 @@ export default function HeroSection() {
           </p>
         </div>
 
-        <div className="relative max-w-6xl mx-auto h-[600px] flex items-center justify-center">
+        <div className="relative max-w-6xl mx-auto h-[500px] md:h-[600px] flex items-center justify-center">
           {/* Central Hub */}
           <div className="relative z-20 group">
-            <div className="w-48 h-48 md:w-64 md:h-64 bg-black rounded-[2.5rem] flex flex-col items-center justify-center text-center p-8 shadow-[0px_0px_50px_rgba(221,252,123,0.3)] border-2 border-[#DDFC7B] relative overflow-hidden">
+            <div className="w-36 h-36 md:w-64 md:h-64 bg-black rounded-3xl md:rounded-[2.5rem] flex flex-col items-center justify-center text-center p-4 md:p-8 shadow-[0px_0px_50px_rgba(221,252,123,0.3)] border-2 border-[#DDFC7B] relative overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(221,252,123,0.1)_0%,transparent_70%)]"></div>
-              <h3 className="text-white font-bold text-lg md:text-xl mb-4 leading-tight relative z-10">Main Offer / <br/>Website Link</h3>
-              <div className="bg-stone-900/50 backdrop-blur-sm p-4 rounded-2xl border border-white/10 w-full relative z-10">
-                <div className="flex items-center justify-center gap-2 mb-1">
-                  <span className="text-3xl md:text-4xl font-black text-[#DDFC7B]">24,892</span>
-                  <ArrowRight size={24} className="text-[#DDFC7B] -rotate-45" />
+              <h3 className="text-white font-bold text-sm md:text-xl mb-2 md:mb-4 leading-tight relative z-10">Main Offer / <br/>Website Link</h3>
+              <div className="bg-stone-900/50 backdrop-blur-sm p-2 md:p-4 rounded-xl md:rounded-2xl border border-white/10 w-full relative z-10">
+                <div className="flex items-center justify-center gap-1 md:gap-2 mb-0.5 md:mb-1">
+                  <span className="text-xl md:text-4xl font-black text-[#DDFC7B]">24,892</span>
+                  <ArrowRight size={16} className="text-[#DDFC7B] -rotate-45 md:hidden" />
+                  <ArrowRight size={24} className="text-[#DDFC7B] -rotate-45 hidden md:block" />
                 </div>
-                <span className="text-stone-400 text-xs font-bold uppercase tracking-widest">Visits</span>
+                <span className="text-stone-400 text-[8px] md:text-xs font-bold uppercase tracking-widest">Visits</span>
               </div>
             </div>
           </div>
 
           {/* Satellite Accounts - Positioned in a circle */}
           {[
-            { image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces', name: 'AI_Hustle', views: '+12.5k', pos: 'top-0 left-[10%] md:left-[20%]' },
-            { image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces', name: 'Stoic_Mind', views: '+8.1k', pos: 'top-0 right-[10%] md:right-[20%]' },
-            { image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces', name: 'Fit_Tok', views: '+15.3k', pos: 'top-[40%] right-0 md:right-[5%]' },
-            { image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=faces', name: 'Tech_Finds', views: '+10.2k', pos: 'bottom-0 right-[10%] md:right-[20%]' },
-            { image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=faces', name: 'Money_Map', views: '+18.9k', pos: 'bottom-0 left-[10%] md:left-[20%]' },
-            { image: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=200&h=200&fit=crop&crop=faces', name: 'Daily_Facts', views: '+9.4k', pos: 'top-[40%] left-0 md:left-[5%]' },
+            { image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=faces', name: 'AI_Hustle', views: '+12.5k', pos: 'top-0 left-[5%] sm:left-[10%] md:left-[20%]' },
+            { image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces', name: 'Stoic_Mind', views: '+8.1k', pos: 'top-0 right-[5%] sm:right-[10%] md:right-[20%]' },
+            { image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces', name: 'Fit_Tok', views: '+15.3k', pos: 'top-[40%] -right-4 sm:right-0 md:right-[5%]' },
+            { image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=faces', name: 'Tech_Finds', views: '+10.2k', pos: 'bottom-0 right-[5%] sm:right-[10%] md:right-[20%]' },
+            { image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop&crop=faces', name: 'Money_Map', views: '+18.9k', pos: 'bottom-0 left-[5%] sm:left-[10%] md:left-[20%]' },
+            { image: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=200&h=200&fit=crop&crop=faces', name: 'Daily_Facts', views: '+9.4k', pos: 'top-[40%] -left-4 sm:left-0 md:left-[5%]' },
           ].map((acc, i) => (
             <div 
               key={i} 
-              className={`absolute ${acc.pos} z-30 animate-float`}
+              className={`absolute ${acc.pos} z-30 animate-float scale-75 md:scale-100`}
               style={{ animationDelay: `${i * 0.2}s` }}
             >
-              <div className="bg-white border-2 border-stone-100 shadow-[0px_10px_30px_rgba(0,0,0,0.05)] rounded-2xl px-5 py-3 flex items-center gap-4 hover:border-black transition-all group cursor-default min-w-[180px]">
-                <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-stone-200 flex-shrink-0">
+              <div className="bg-white border-2 border-stone-100 shadow-[0px_10px_30px_rgba(0,0,0,0.05)] rounded-2xl px-3 py-2 md:px-5 md:py-3 flex items-center gap-3 md:gap-4 hover:border-black transition-all group cursor-default min-w-[140px] md:min-w-[180px]">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden border-2 border-stone-200 flex-shrink-0">
                   <Image 
                     src={acc.image}
                     alt={acc.name}
@@ -527,8 +552,8 @@ export default function HeroSection() {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-bold text-sm text-black">{acc.name}</span>
-                  <span className="text-[10px] font-bold text-stone-400 uppercase tracking-tight">{acc.views} views/day</span>
+                  <span className="font-bold text-xs md:text-sm text-black">{acc.name}</span>
+                  <span className="text-[8px] md:text-[10px] font-bold text-stone-400 uppercase tracking-tight">{acc.views} views/day</span>
                 </div>
               </div>
             </div>
